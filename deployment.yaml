@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: your-app
+  name: pong-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: your-app
+      app: pong-app
   template:
     metadata:
       labels:
-        app: your-app
+        app: pong-app
     spec:
       containers:
-        - name: your-app-container
-          image: dockerhubusername/imagename:tag  # Docker Hub image reference
+        - name: Pong-app container
+          image: criszzamora/dev-ops_personal:latest  # Docker Hub image reference
           ports:
             - containerPort: 3000
