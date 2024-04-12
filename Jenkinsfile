@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-/*      stage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 script {
                     def scannerHome = tool 'SonarQube Scanner'
@@ -23,7 +23,7 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
         stage('Push Docker image to Hub'){  
             steps{
                 script{
@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy Docker to Kubernetes'){
             steps{
                 script{
-                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
+                    kubernetesDeploy (configs: 'deployment.yaml',kubeconfigId: 'k8sconfig')
                 }
             }
         }
